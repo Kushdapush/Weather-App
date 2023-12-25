@@ -5,12 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Weather App</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        form {
+            width: 400px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label {
+            margin: 10px;
+        }
+
+        input {
+            margin: 10px;
+            height: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+            height: 20px;
+            width: 100px;
+            border: 2px, solid;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <form action="/" method="POST">
-        <label for="cityInput">City Name: </label>
-        <input style="background-color: aqua;" id="cityInput" type="text" name="cityName">
+        <label for="cityInput">
+            <h1>City Name: </h1>
+        </label>
+        <input id="cityInput" type="text" name="cityName">
         <button type="submit">Gooooo</button>
     </form>
 </body>
