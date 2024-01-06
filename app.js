@@ -26,12 +26,26 @@ app.post('/', function (req, res) {
             const weatherDescription = weatherData.weather[0].description
             const icon = weatherData.weather[0].icon
             const imageURL = "https://openweathermap.org/img/wn/" + icon + "@2x.png";
-
+            res.setHeader('Content-Type', 'text/html');
             console.log(temp, weatherDescription);
-            res.write("<p>the weather condition is : " + weatherDescription + "</p>")
-            res.write("<h1>The temperature of " + query + " is: " + cel.toFixed(2) + " celcius</h1>");
-            res.write("<img src=" + imageURL + ">")
-            res.send()
+            res.write('<!DOCTYPE html>');
+            res.write('<html lang="en">');
+            res.write('<head>');
+            res.write('<meta charset="UTF-8">');
+            res.write('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
+            res.write('<style>')
+            res.write('p { display: block; width: fit-content; height: 40px; margin-right: auto; margin-left: auto; padding: 8px; }')
+            res.write('.temperature{ display: block; width : fit-content; height: 100px; margin-right: auto; margin-left: auto; }')
+            res.write('.weatherImage{ display: block; width : fit-content; height: fit-content; margin-right: auto; margin-left: auto;}')
+            res.write('</style>')
+            res.write('</head>');
+            res.write('<body>');
+            res.write('<p class="weatherCondition">The weather condition is: ' + weatherDescription + '</p>');
+            res.write('<h1 class="temperature">The temperature of ' + query + ' is: ' + cel.toFixed(2) + ' Celsius</h1>');
+            res.write('<img class="weatherImage" src="' + imageURL + '">');
+            res.write('</body>');
+            res.write('</html>');
+            res.end();
         })
     })
 })
